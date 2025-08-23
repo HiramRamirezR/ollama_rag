@@ -44,8 +44,3 @@ The project uses the following Python libraries:
 *   `fastembed`
 
 You can install them all with `pip install -r requirements.txt`.
-
-## Credit
-
-This project is based on the tutorial from the following video:
-[https://youtu.be/VyAbT4m48Ic?si=G4icPZ0D01clMNI7&t=1060](https://youtu.be/VyAbT4m48Ic?si=G4icPZ0D01clMNI7&t=1060)
