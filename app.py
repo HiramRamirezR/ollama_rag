@@ -7,7 +7,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 
-# Process PDF document and create vectorial base
+# Process PDF document and create vector base
 def ingest_document(pdf_path):
     print("Loading your document...")
 
@@ -23,7 +23,7 @@ def ingest_document(pdf_path):
 
     chunks = text_splitter.split_documents(pages)
 
-    print(f"Converted {len(pages)} pages in {len(chunks)} smart pieces.")
+    print(f"Converted {len(pages)} pages into {len(chunks)} smart chunks.")
 
     embedding = FastEmbedEmbeddings()
 
@@ -33,7 +33,7 @@ def ingest_document(pdf_path):
         persist_directory = "./local_knowledge_db"
     )
 
-    print("Your local IA already knows the document.")
+    print("Your local AI already knows the document.")
     return vector_store
 
 # Create RAG to interact with documents
@@ -45,26 +45,26 @@ def create_local_rag_chain():
 
     prompt_template = PromptTemplate.from_template(
         f"""
-        Eres un asistente inteligente y experto.
-        Responde basándote en el contexto propocionado de los docuemntos.
+        You are an intelligent and expert assistant.
+        Answer based on the provided context of the documents.
 
-        Si no encuentras la información en el contexto, dilo claramente.
-        Siempre menciona de qué parte del documento viene tu respuesta.
+        If you don't find the information in the context, say so clearly.
+        Always mention which part of the document your answer comes from.
 
-        Contexto de los docuemntos:
+        Document context:
         {context}
 
-        Pregunta del usuario:
+        User question:
         {input}
 
-        Respuesta detallada:
+        Detailed answer:
         """
     )
 
     embedding = FastEmbedEmbeddings()
     vector_store = Chroma(
         persist_directory = "./local_knowledge_db",
-        embedding_funcion = embedding
+        embedding_function = embedding
     )
 
     retriever = vector_store.as_retriever(
