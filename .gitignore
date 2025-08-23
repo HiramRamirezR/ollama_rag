@@ -1,2 +1,4 @@
 venv/
 .env
+local_knowledge_db/
+document.pdf

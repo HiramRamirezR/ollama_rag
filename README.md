@@ -2,7 +2,7 @@
 
 ## Description
 
-This project implements a Retrieval-Augmented Generation (RAG) system to chat with your PDF documents locally. It uses Ollama to run the language model, ChromaDB for the vector store, and LangChain to orchestrate the process.
+This project implements a Retrieval-Augmented Generation (RAG) system to chat with your PDF documents locally. It uses Ollama to run the `gemma3:270m` language model, ChromaDB for the vector store, and LangChain to orchestrate the process.
 
 ## Installation
 
@@ -14,9 +14,9 @@ This project implements a Retrieval-Augmented Generation (RAG) system to chat wi
     ```bash
     pip install -r requirements.txt
     ```
-3.  Make sure you have Ollama installed and the `deepseek-r1` model pulled:
+3.  Make sure you have Ollama installed and the `gemma3:270m` model pulled:
     ```bash
-    ollama pull deepseek-r1
+    ollama pull gemma3:270m
     ```
 
 ## Usage
@@ -27,7 +27,9 @@ This project implements a Retrieval-Augmented Generation (RAG) system to chat wi
     python app.py your-document.pdf
     ```
 3.  The script will process the document and create a local vector store in the `./local_knowledge_db` directory.
-4.  You can then interact with the RAG chain to ask questions about your document.
+4.  Once the document is processed, you can interact with the RAG chain to ask questions about your document in the terminal.
+5.  Type your question and press Enter. The script will print the answer and the page numbers from the document that were used as sources.
+6.  To end the chat, type `exit` and press Enter.
 
 ## Dependencies
 
