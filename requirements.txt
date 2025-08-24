@@ -5,3 +5,4 @@ langchain
 chromadb
 pypdf
 fastembed
+discord.py

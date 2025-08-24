@@ -105,18 +105,7 @@ def main():
     pdf_path = sys.argv[1]
     ingest_document(pdf_path)
 
-    print("Creating RAG chain...")
-    rag_chain = create_local_rag_chain()
-
-    print("\nNow you can chat with your document.")
-    print("\nWrite 'exit' to quit")
-
-    while True:
-        question = input("\nYour question: ")
-        if question.lower() == "exit":
-            print("Exiting chat. Goodbye!")
-            break
-        chat_whit_document(rag_chain, question)
+    print("Document ingestion complete.")
 
 if __name__ == "__main__":
     main()
